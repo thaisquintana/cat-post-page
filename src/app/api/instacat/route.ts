@@ -7,7 +7,6 @@ export async function GET(request: NextRequest){
   const postPayload = await fetchPost(postId)
   const commentPayload = postId && await fetchComments(postId)
   const generatePhotoUrl = { imgUrl: 'https://images.unsplash.com/photo-1571566882372-1598d88abd90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80' }
-  console.log(postPayload)
   const payload = Object.assign(postPayload, commentPayload, generatePhotoUrl)
   return NextResponse.json(payload);
 }
